@@ -1,7 +1,7 @@
 # NewsSifter
 
 
-This project implements a command-line application that searches the web for recent news articles matching a user-specified topic. It leverages third-party APIs for both news search and summarization and finetuned models for relevancy scoring. This delivers a comprehensive overview of the topic. The task is done in the following steps:
+This project implements a command-line application that searches the web for recent news articles matching a user-specified topic with a choice of language. It leverages third-party APIs for both news search, finetuned models for relevancy scoring, LM for named entity recognition and LLMs for summarization. with this it delivers a comprehensive overview of the news topic. <br> The task follows the following steps:
 - The first step involves fetching the News based on a query given by the user. In this case I have used NewsApi, NewDataIO and GDelta.
 - All the aggregated News is given to BM25 which reduces the number from over 250 new articles to 30 news articles based on the relevancy.
 - The 30 news articles with their respective URL is given to Webscraper to scraper the content. This is done since the news API only provides the news title and a very short description.
@@ -63,5 +63,5 @@ Below table shows the News API tried and used. GDelt comes as a package but the 
 | [NewDataIO](https://newsdata.io/)  | API provide News from 74597+ sources | [ X ] |
 | [GDELT API](https://github.com/gdelt/gdelt.github.io) | GDELT Project API for real-time analysis of global news coverage in multiple languages. |  [ X ] |
 | Contify  | Requires business email & 7 day trail only | [ - ]
-| Newscatcher API | Should submiut an application to get approval | [ - ] |
-| Mediastack API | Ony has a paid subscription | [ - ] |
+| Newscatcher API | Should submit an application to get approval | [ - ] |
+| Mediastack API | Have only a paid subscription | [ - ] |
