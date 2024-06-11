@@ -8,11 +8,14 @@ This project implements a command-line application that searches the web for rec
 - Then the Top 15 headlines is retrieved based on the user query and scraped content using Ranking specific models
 - The Top 15 News Headlines is summarized using GPT 3.5 turbo and the Named Entities present in all the 15 news headlines is displayed based on their frequency
 
+
+Below table show the News API tried and used:
+
 | News Third Pary APIs         | Description                                          | Used |
 |-----------------|-------------------------------------------------------| ------ |
-| NewsApi     | API provide news articles published by over 150,000 worldwide sources | [x] |
+| NewsApi     | API provide news articles published by over 150,000 worldwide sources | [ X ] |
 | NewDataIO   | API provide News from 74597+ sources | [x] |
-| GDELT API | GDELT Project API for real-time analysis of global news coverage in multiple languages. |  [x] |
+| GDELT API | GDELT Project API for real-time analysis of global news coverage in multiple languages. |  [ X ] |
 | Contify  | Requires business email & 7 day trail only | [ ]
-| Newscatcher API | Should submiut an application to get approval | [] |
-| Mediastack API | Ony has a paid subscription | [] |
+| Newscatcher API | Should submiut an application to get approval | [ ] |
+| Mediastack API | Ony has a paid subscription | [ ] |
