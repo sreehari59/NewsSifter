@@ -9,6 +9,20 @@ This project implements a command-line application that searches the web for rec
 - The Top 15 News Headlines is summarized using GPT 3.5 turbo and the Named Entities present in all the 15 news headlines is displayed based on their frequency
 
 
+## Installation and Setup
+
+Unzip the file.
+Create an environment and activate it
+Use the below command to install the required packages
+```
+pip install -r requirements.txt
+```
+To execute the code run the below command
+```
+python main.py
+```
+
+
 Below table show the News API tried and used:
 
 | News Third Pary APIs         | Description                                          | Used |
