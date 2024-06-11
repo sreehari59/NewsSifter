@@ -51,7 +51,7 @@ python main.py
 5. `Summarizer.py` is a python file used for the Summarization task and named entity recognition task. GPT 3.5 was used for Summarization task and spacy model for the Named entity recognition.
 6. `utils.py` file has some supporting functions for the task.
 7. `main.py` the main python file that calls the other classes.
-8. `.env` this file contains the environment variables. The API keys shhould be updated in this file.
+8. `.env` this file contains the environment variables. The API keys should be updated in this file. Also the model names can be specified in here.
 
 ## Appendix
 
