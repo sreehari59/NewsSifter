@@ -11,27 +11,35 @@ This project implements a command-line application that searches the web for rec
 
 ## Installation and Setup
 
-Unzip the file.
-Create an environment and activate it
-Use the below command to install the required packages
+- Unzip the file.
+- Create an environment and activate it
+- Use the below command to install the required packages
 ```
 pip install -r requirements.txt
+```
+- Install spacy model for english language
+```
+python -m spacy download en_core_web_sm
+```
+- Install spacy model for german language
+```
+python -m spacy download de_core_news_sm
 ```
 
 ## Usage
 
-- 1. To run the script
+1. To run the script
 ```
 python main.py
 ```
-- 2. Enter a topic when prompted.
-  3. Mention the language
-  4. The application will display all the news articles related to the search
-  5. 2 CSV files will be downloaded in the same directory
-       - One having all the headline, published date and URL 
-       - Second having the top 15 relevant headlines with respect to search    
-  6. Now a summary of the top 15 relevant is generated along with the named entities with their count
-  7. The execution can be continued by answering "Yes" or "No"
+2. Enter a topic when prompted.
+3. Mention the language
+4. The application will display all the news articles related to the search
+5. Two CSV files will be downloaded in the same directory
+     - One having all the headline, published date and URL 
+     - Second having the top 15 relevant headlines with respect to search    
+6. Now a summary of the top 15 relevant is generated along with the named entities with their count
+7. The execution can be continued by answering "Yes" or "No"
 
 ## Appendix
 
