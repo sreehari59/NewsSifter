@@ -31,6 +31,6 @@ Below table show the News API tried and used:
 | NewsApi     | API provide news articles published by over 150,000 worldwide sources | [ X ] |
 | NewDataIO   | API provide News from 74597+ sources | [ X ] |
 | GDELT API | GDELT Project API for real-time analysis of global news coverage in multiple languages. |  [ X ] |
-| Contify  | Requires business email & 7 day trail only | [ ]
-| Newscatcher API | Should submiut an application to get approval | [ ] |
-| Mediastack API | Ony has a paid subscription | [ ] |
+| Contify  | Requires business email & 7 day trail only | [ - ]
+| Newscatcher API | Should submiut an application to get approval | [ - ] |
+| Mediastack API | Ony has a paid subscription | [ - ] |
