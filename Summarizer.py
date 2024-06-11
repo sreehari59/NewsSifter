@@ -26,7 +26,7 @@ class HeadlineSummarizer:
     completion = client.chat.completions.create(
       model=self.model,
       messages=[
-        {"role": "system", "content": "You are an assistant that can read a list of headline titles which are all mostly referring to the same news but are written slightly differently with different variations and possibly with typos. You are an expert at reading the list of news headlines titles (with all their variations) and returning back a summary that represents the entire input group."},
+        {"role": "system", "content": "You are an assistant that can read a list of headline titles which are all mostly referring to the same news but are written slightly differently with different variations and possibly with typos. You are an expert at reading the list of news headlines titles (with all their variations) and returning back a single summary that represents the entire list of input group."},
         {"role": "user", "content": prompt}
       ]
     )
@@ -40,24 +40,25 @@ class HeadlineSummarizer:
     return summarized_headlines
 
   def extract_named_entities(self, headlines_list):
+        
         """
         This function fins the named entities and its count for a given news headline list
         """
-    # Combining headlines for efficient spaCy processing
-    combined_text = " ".join(headlines_list)
-    doc = self.nlp(combined_text)
+        # Combining headlines for efficient spaCy processing
+        combined_text = " ".join(headlines_list)
+        doc = self.nlp(combined_text)
 
-    # Initialize named entity count dictionary
-    entity_counts = {}
-    for entity in doc.ents:
-      entity_text = entity.text
-      if entity_text in entity_counts:
-        entity_counts[entity_text] += 1
-      else:
-        entity_counts[entity_text] = 1
+        # Initialize named entity count dictionary
+        entity_counts = {}
+        for entity in doc.ents:
+          entity_text = entity.text
+          if entity_text in entity_counts:
+            entity_counts[entity_text] += 1
+          else:
+            entity_counts[entity_text] = 1
 
-    # Sort entity counts by frequency in descending
-    sorted_entities = sorted(entity_counts.items(), key=lambda x: x[1], reverse=True)
+        # Sort entity counts by frequency in descending
+        sorted_entities = sorted(entity_counts.items(), key=lambda x: x[1], reverse=True)
 
-    return sorted_entities
+        return sorted_entities
 

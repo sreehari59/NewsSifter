@@ -19,7 +19,9 @@ class NewsAggregator:
         
         Return: newsapi_data - A list of dictionary
         """
-        url = f"{self.newsapi_base_url}?q={query}&from=2024-05-09&sortBy=popularity&apiKey={self.newsapi_key}"
+        one_month_before = datetime.now() - timedelta(days=30)     
+        one_month_before= one_month_before.strftime('%Y-%m-%d')
+        url = f"{self.newsapi_base_url}?q={query}&from={one_month_before}&sortBy=popularity&apiKey={self.newsapi_key}"
         response = requests.get(url)
         data = json.loads(response.text)
         articles = data.get("articles", [])

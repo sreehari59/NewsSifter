@@ -28,14 +28,19 @@ if __name__ == "__main__":
         
         user_input = input("Enter an arbitrary topic: ")
         language = input("Enter the language (en/de): ")
+        
 
         config = dotenv_values(".env")
         open_ai_key = config["OPEN_AI_KEY"]
         news_api_key = config["NEWS_API_KEY"]
         news_dataio_key = config["NEWS_DATAIO_KEY"]
+        docranker_model_name = config["DOC_RANKER_MODEL_NAME"]
+        summarizer_model_name = config["GPT_MODEL_NAME"]
 
         news_aggregator = NewsAggregator(newsapi_key=news_api_key, newsDataIO_api_key=news_dataio_key)
         aggregated_news = news_aggregator.aggregate_news(user_input, language)
+        
+        print("Fetching Over ",len(aggregated_news)," News Articles...")
         # Write CSV file
         write_csv(pd.DataFrame(aggregated_news), "All_news.csv","description")
         
@@ -47,14 +52,14 @@ if __name__ == "__main__":
         run_news_spider(top_30_titles)
         news_articles = scraped_content(top_30_titles, "scraped_data.pkl")
         # Re ranking the news article based on the scraped content
-        doc_ranker = DocRanker()
+        doc_ranker = DocRanker(docranker_model_name)
         top_15_headlines = doc_ranker.get_top_headlines(user_input, news_articles)
         top_15_headlines.sort(key=lambda x: x['score'], reverse=True)  
         # Write the Top 15 headlines into CSV file
         write_csv(pd.DataFrame(top_15_headlines), "Top15_news.csv",["description","score"], True)
         print("----------------")
         print("Summary: \n")
-        gpt_headline_summarizer = HeadlineSummarizer(open_ai_key)
+        gpt_headline_summarizer = HeadlineSummarizer(open_ai_key,summarizer_model_name)
         # Summarize the top 15 headlines
         summary = gpt_headline_summarizer.summarizing_headlines([i["title"] for i in top_15_headlines])
         print(summary)
@@ -68,10 +73,7 @@ if __name__ == "__main__":
         if re.search(r"^(y|yes)$", continue_input, flags=re.IGNORECASE):
             user_flag = True
         else:
-            user_flag = False
-            
-        
-    
+            user_flag = False    
 
     
     
