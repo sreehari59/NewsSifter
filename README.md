@@ -55,7 +55,7 @@ python main.py
 
 ## Appendix
 
-Below table shows the News API tried and used. GDelt comes as a package but the others requires creating an account.
+Below table shows the News API tried and used. GDelt comes as a package but the others requires creating an account. 
 
 | News Third Pary APIs         | Description                                          | Used | 
 |-----------------|-------------------------------------------------------| ------ | 
@@ -65,3 +65,7 @@ Below table shows the News API tried and used. GDelt comes as a package but the 
 | Contify  | Requires business email & 7 day trail only | [ - ]
 | Newscatcher API | Should submit an application to get approval | [ - ] |
 | Mediastack API | Have only a paid subscription | [ - ] |
+
+Note: Click on the Thirdparty links to be redirected to respective APIs
+
+For GPT API Key, creating a first time account gives you free credits. In case you have already used it up, then you must pay inorder to get the credits. The API key can be generated in the following [link](https://platform.openai.com/api-keys)
