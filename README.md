@@ -7,3 +7,10 @@ This project implements a command-line application that searches the web for rec
 - The 30 news headline with their respective URL is given to Webscraper to scraper the content
 - Then the Top 15 headlines is retrieved based on the user query and scraped content using Ranking specific models
 - The Top 15 News Headlines is summarized using GPT 3.5 turbo and the Named Entities present in all the 15 news headlines is displayed based on their frequency
+
+| News Third Pary APIs         | Description                                          |
+|-----------------|-------------------------------------------------------|
+| NewsApi     | Prompts user to enter a topic for news article search. |
+| NewDataIO   | Delivers top 15 relevant articles with titles, URLs, and dates. |
+| Summary & Entities | Generates a summary of top headlines and identifies named entities. |
+| Output Options  | Provides results as a list and saves them in a CSV file. |
