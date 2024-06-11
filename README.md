@@ -18,11 +18,11 @@ This project implements a command-line application that searches the web for rec
 pip install -r requirements.txt
 pip install python-dotenv
 ```
-- Install spacy model for english language [Visit our website](https://www.example.com)
+- Install [spacy model for english language](https://spacy.io/models/en)
 ```
 python -m spacy download en_core_web_sm
 ```
-- Install spacy model for german language
+- Install [spacy model for german language](https://spacy.io/models/de)
 ```
 python -m spacy download de_core_news_sm
 ```
