@@ -10,7 +10,9 @@ This project implements a command-line application that searches the web for rec
 
 | News Third Pary APIs         | Description                                          | Used |
 |-----------------|-------------------------------------------------------| ------ |
-| NewsApi     | Prompts user to enter a topic for news article search. | [x] |
-| NewDataIO   | Delivers top 15 relevant articles with titles, URLs, and dates. | [x] |
-| GDELT API | Generates a summary of top headlines and identifies named entities. |  [x] |
-| Contify  | Provides results as a list and saves them in a CSV file. |
+| NewsApi     | API provide news articles published by over 150,000 worldwide sources | [x] |
+| NewDataIO   | API provide News from 74597+ sources | [x] |
+| GDELT API | GDELT Project API for real-time analysis of global news coverage in multiple languages. |  [x] |
+| Contify  | Requires business email & 7 day trail only | [ ]
+| Newscatcher API | Should submiut an application to get approval | [] |
+| Mediastack API | Ony has a paid subscription | [] |
