@@ -65,3 +65,7 @@ Below table shows the News API tried and used. GDelt comes as a package but the 
 | Contify  | Requires business email & 7 day trail only | [ - ]
 | Newscatcher API | Should submit an application to get approval | [ - ] |
 | Mediastack API | Have only a paid subscription | [ - ] |
+
+## References
+
+[](https://arxiv.org/pdf/2402.03216)
