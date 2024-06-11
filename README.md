@@ -22,6 +22,7 @@ To execute the code run the below command
 python main.py
 ```
 
+## Appendix
 
 Below table show the News API tried and used:
 
