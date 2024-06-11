@@ -1,12 +1,12 @@
 # NewsSifter
 
 
-This project implements a command-line application that searches the web for recent news articles matching a user-specified topic. It leverages third-party APIs for both news search and summarization to deliver a comprehensive overview of the topic. The task is done in the following steps:
-- The first step involves fetching the News based on a query given by the user. In this case I have used NewsApi, NewDataIO, GDelta.
-- All the aggregated News is given to BM25 which reduce the number to 30 news headlines based on the relevancy
-- The 30 news headline with their respective URL is given to Webscraper to scraper the content
-- Then the Top 15 headlines is retrieved based on the user query and scraped content using Ranking specific models
-- The Top 15 News Headlines is summarized using GPT 3.5 turbo and the Named Entities present in all the 15 news headlines is displayed based on their frequency
+This project implements a command-line application that searches the web for recent news articles matching a user-specified topic. It leverages third-party APIs for both news search and summarization and finetuned models for relevancy scoring. This delivers a comprehensive overview of the topic. The task is done in the following steps:
+- The first step involves fetching the News based on a query given by the user. In this case I have used NewsApi, NewDataIO and GDelta.
+- All the aggregated News is given to BM25 which reduces the number from over 250 new articles to 30 news articles based on the relevancy.
+- The 30 news articles with their respective URL is given to Webscraper to scraper the content. This is done since the news API only provides the news title and a very short description.
+- The Top 15 headlines is retrieved based on the user query and scraped content using Ranking specific finetuned multilingual models.
+- The Top 15 News Headlines is summarized using GPT 3.5 turbo and the Named Entities present in all the 15 news headlines is displayed based on their frequency.
 
 
 ## Installation and Setup
@@ -42,15 +42,26 @@ python main.py
 6. Now a summary of the top 15 relevant headlines is generated along with the named entities with their count
 7. The execution can be continued by answering "Yes" or "No"
 
+## Python Files
+
+1. `News_aggregator.py` is the python file used to fetch the news given a query and finally aggregates all the news from the sources.
+2. `News_Scraper.py` is python file for scraping given set of URLS.
+3. `Relevancy_computer.py` file uses Rank-BM25 which is a collection of algorithms that queries a set of articles and return the most relevant to the user query.
+4. `DocsRanker.py` python file uses model specifically finetuned for multilingual information retrieval context. Here it was used to rank the news articles based on scraped content of the news and the user query.
+5. `Summarizer.py` is a python file used for the Summarization task and named entity recognition task. GPT 3.5 was used for Summarization task and spacy model for the Named entity recognition.
+6. `utils.py` file has some supporting functions for the task.
+7. `main.py` the main python file that calls the other classes.
+8. `.env` this file contains the environment variables. The API keys shhould be updated in this file.
+
 ## Appendix
 
-Below table shows the News API tried and used:
+Below table shows the News API tried and used. GDelt comes as a package but the others requires creating an account.
 
-| News Third Pary APIs         | Description                                          | Used |
-|-----------------|-------------------------------------------------------| ------ |
-| NewsApi     | API provide news articles published by over 150,000 worldwide sources | [ X ] |
-| NewDataIO   | API provide News from 74597+ sources | [ X ] |
-| GDELT API | GDELT Project API for real-time analysis of global news coverage in multiple languages. |  [ X ] |
+| News Third Pary APIs         | Description                                          | Used | 
+|-----------------|-------------------------------------------------------| ------ | 
+| [NewsApi](https://newsapi.org/)     | API provide news articles published by over 150,000 worldwide sources | [ X ] | 
+| [NewDataIO](https://newsdata.io/)  | API provide News from 74597+ sources | [ X ] |
+| [GDELT API](https://github.com/gdelt/gdelt.github.io) | GDELT Project API for real-time analysis of global news coverage in multiple languages. |  [ X ] |
 | Contify  | Requires business email & 7 day trail only | [ - ]
 | Newscatcher API | Should submiut an application to get approval | [ - ] |
 | Mediastack API | Ony has a paid subscription | [ - ] |
